@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Admin - Tour Booking{% endblock %}</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous"/>
+
+  <style>
+    body { background:#0f1720; color: #fff; font-family: "Segoe UI", sans-serif; }
+    .main-content { margin-left: 240px; padding: 32px; }
+    .card, .card1 { background: #1c1e21; color: #fff; border: none; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    .card { width: 200px; display:inline-block; margin-right:12px; padding:12px; }
+    .card1 { display:inline-block; padding:12px; margin:10px; }
+    .circular-progress { position: relative; width:150px; height:150px; margin:auto; }
+    .circular-progress svg { transform: rotate(-90deg); display:block; }
+    .circular-progress .progress-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:1.4rem; font-weight:700; color:#fff; }
+    .submit-button { background:#007bff; color:#fff; border:none; padding:10px 16px; border-radius:6px; display:inline-block; text-decoration:none; text-align:center; }
+    .submit-button:hover { background:#0056b3; color:#fff; }
+    .form-input { width:100%; padding:10px; border-radius:6px; border:1px solid #ced4da; }
+    .form-group { margin-bottom:14px; }
+    .sidebar-space { width:240px; }
+  </style>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  {% include 'Sidebar.html' %}
+  <div class="main-content">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

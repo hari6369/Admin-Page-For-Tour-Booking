@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background: url("{% static 'images/img1.jpg' %}") no-repeat center
+          center fixed;
+        background-size: cover;
+        height: 100vh;
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .login-body {
+        backdrop-filter: blur(6px);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 50px 40px;
+        max-width: 400px;
+        margin: 100px auto;
+        border-radius: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .login-heading {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #ffffff;
+        font-size: 28px;
+        letter-spacing: 1px;
+      }
+
+      .login-label {
+        font-weight: bold;
+        color: #ffffff;
+      }
+
+      .login-input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        background: transparent;
+        color: white;
+        border: none;
+        outline: none;
+      }
+
+      .input-wrapper {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        width: 94%;
+        background: transparent;
+        margin-bottom: 15px;
+        padding: 5px 10px;
+      }
+
+      .input-wrapper i {
+        color: #ffffff;
+        margin-right: 10px;
+      }
+
+      .login-button {
+        width: 100%;
+        padding: 10px;
+        background: transparent;
+        border: 1px solid #ced4da;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .login-button:hover {
+        background-color: #ffffff;
+        color: #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="login-body">
+      <h2 class="login-heading">Admin Login</h2>
+
+      <form class="login-form" method="POST">
+        {% csrf_token %}
+
+        <div class="input-wrapper">
+          <i class="fas fa-envelope"></i>
+          <input
+            class="login-input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+
+        <div class="input-wrapper">
+          <i class="fas fa-lock"></i>
+          <input
+            class="login-input"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <button class="login-button" type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

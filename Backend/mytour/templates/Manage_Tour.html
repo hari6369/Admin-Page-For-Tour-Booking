@@ -1,0 +1,81 @@
+{% extends 'layout/app-layout.html' %} {% block title %}Manage Tours{% endblock%} {% block content %}
+<style>
+  .table-responsive {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table-responsive th,
+  .table-responsive td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  .table-responsive th {
+    background-color: #007bff;
+    color: white;
+    position: sticky;
+    top: 0;
+  }
+  .table-responsive tr:hover {
+    background-color: #575d63;
+  }
+  .btn {
+    margin-right: 5px;
+  }
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875rem;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+</style>
+<h2>Manage Tours</h2>
+
+<div class="table-responsive mt-3">
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Tour ID</th>
+        <th>Tour Name</th>
+        <th>Destination</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tour in tours %}
+      <tr>
+        <td>{{ tour.id }}</td>
+        <td>{{ tour.name }}</td>
+        <td>{{ tour.destination }}</td>
+        <td>${{ tour.price }}</td>
+        <td>
+          <a href="{% url 'edit_tour' tour.id %}" class="btn btn-primary btn-sm"
+            >Edit</a
+          >
+          <a
+            href="{% url 'delete_tour' tour.id %}"
+            class="btn btn-danger btn-sm"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5">No tours found.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'layout/app-layout.html' %} {% block title %}View Bookings{% endblock %} {% block content %}
+<style>
+  .table-responsive {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table-responsive th,
+  .table-responsive td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  .table-responsive th {
+    background-color: #343a40;
+    color: white;
+    position: sticky;
+    top: 0;
+  }
+  .table-responsive tr:hover {
+    background-color: #575d63;
+  }
+
+  .table-responsive {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  .table-responsive th,
+  .table-responsive td {
+    border: 1px solid #ccc;
+  }
+  .table-responsive th {
+    background-color: #007bff;
+    color: white;
+  }
+</style>
+<h2>View Bookings</h2>
+<div class="table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tour Name</th>
+        <th>Customer Name</th>
+        <th>Booking Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in bookings %}
+      <tr>
+        <td>{{ booking.id }}</td>
+        <td>{{ booking.tour_name }}</td>
+        <td>{{ booking.customer_name }}</td>
+        <td>{{ booking.booking_date }}</td>
+        <td>{{ booking.status }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}  
